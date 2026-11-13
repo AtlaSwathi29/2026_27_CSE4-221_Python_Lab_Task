@@ -1,12 +1,20 @@
-number = int(input("Enter a number between 1 and 100: "))
+number = int(input("Enter a number: "))
 
-count = 0
+original_number = number
+reversed_number = 0
 
-for i in range(1, number + 1):
-    if number % i == 0:
-        count = count + 1
+while number > 0:
+    digit = number % 10
+    reversed_number = reversed_number * 10 + digit
+    number = number // 10
 
-if count == 2:
-    print(f"{number} is a prime number (divisor count = {count})")
+if reversed_number == original_number:
+    print(
+        f"{original_number} is a palindrome "
+        f"(reversed value is {reversed_number})"
+    )
 else:
-    print(f"{number} is not a prime number (divisor count = {count})")
+    print(
+        f"{original_number} is not a palindrome "
+        f"(reversed value is {reversed_number})"
+    )
